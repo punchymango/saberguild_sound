@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Saber Guild Soundboard!</title>
+    <meta name="description" content="Soundboards for saber guild events">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="flex">
+      <img src="assets/images/SGlogoGlobal.png">
+      <h1 class="center">Sound App</h1>
+    </header>
+
+      <audio id = "music" type="audio/mp3">
+        </audio>
+      <section class="flex" id = "player">
+        <div class="flex_child"><p class="bold center" id="title">Select track</p></div>
+        <div class="flex_child" id = "button_pad">
+          <button id="dButton" class="delay" onclick="musicPlayer.toggleDelay()"></button>
+          <button  id="rButton" class="repeat" onclick="musicPlayer.toggleRepeat()"></button>
+          <button id="pButton" class="play" onclick="handlers.playHandler()"></button>
+        </div>
+        <div class="flex_child">
+          <span class="hidden" id="elapsed">0:00</span><div id="timeline">
+            <div id="playhead"></div>
+          </div><span class = "hidden" id="track_duration">0:00</span>
+        </div>
+
+      </section>
+
+      <section class="flex" id = "music_tracks">
+        <div class = "flex_child track_select" id = "kata">
+          <h2 class = "list-header">Forms</h2>
+          <p class = "track-heading bold lite-up" id="djemSo">Djem So</p>
+          <p class = "track-heading bold lite-up" id="makashi">Makashi</p>
+          <p class = "track-heading bold lite-up" id="shiiCho">Shii Cho</p>
+          <p class = "track-heading bold lite-up" id="soresu">Soresu</p>
+        </div>
+        <div class = "flex_child track_select" id = "fight">
+          <h2 class = "list-header">Fights</h2>
+          <p class = "track-heading bold lite-up" id = "epic">Epic</p>
+          <p class = "track-heading bold lite-up" id = "dramatic">Dramatic</p>
+          <p class = "track-heading bold lite-up" id = "darkSide">Dark</p>
+          <p class = "track-heading bold lite-up" id = "tragic">Tragic</p>
+        </div>
+        <div class = "flex_child track_select" id = "force">
+          <h2 class = "list-header">Force Experience</h2>
+          <p class = "track-heading bold lite-up" id = "fullTrack">Full Track</p>
+          <p class = "track-heading bold lite-up">Jedi Duel</p>
+          <p class = "track-heading bold lite-up">Jedi Sith Fight</p>
+        </div>
+      </section>
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="scripts/sound.js"></script>
+
+  </body>
+</html>
