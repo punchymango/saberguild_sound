@@ -32,7 +32,8 @@ header {
   position:absolute;
   top:0;
   left: 0;
-  justify-content: left;
+  justify-content: center;
+  flex-flow: column wrap;
 }
 
 header img {
@@ -43,9 +44,11 @@ header img {
 h1 {
   font-size:1.2em;
   font-weight: bold;
-  color: #ede61e;
+  color: #FBCA07;
 }
-
+h1, h2 {
+  text-shadow: 1px 1px 1px #000CB5;
+}
 .bold {
   font-weight: bold;
 }
@@ -60,24 +63,6 @@ p {
 
 
 
-#sound_effects button {
-  font-size: 1em;
-  border-radius: 3px;
-  background-color: azure;
-  border: 1px solid #849bff;
-  cursor: pointer;
-  transition: background .4s ease, color .4s ease;
-  height: 35px;
-  min-width: 65px;
-  margin: .3vh .3vw;
-  color:black;
-}
-
-#sound_effects button:hover {
-  background: #849bff;
-  color: ivory;
-  transition: background .4s ease, color .4s ease;
-}
 
 
 section {
@@ -90,9 +75,6 @@ section {
   color:azure;
 }
 
-#sound_effects > div {
-  min-height: 40px;
-}
 
 .track-heading {
   font-size: 1.2em;
@@ -100,13 +82,17 @@ section {
 }
 
 .track-heading::before {
-  content: ">";
+  content: "\f1d0";
+  font-family: FontAwesome;
+  font-size: 1em;
   color: #849bff;
   text-shadow: 1px 2px 2px black;
+  margin-right: .5vw;
 }
 
 .track-heading:hover::before {
   text-shadow: none;
+  color:azure;
   transition: all .4s ease;
 }
 
@@ -123,6 +109,7 @@ section {
 
 #music_tracks {
   align-items:baseline;
+  margin-top: 20vh;
 }
 
 .track_select {
@@ -135,6 +122,13 @@ section {
   text-shadow:none;
   transition: all .4s ease;
 }
+.active_track::before {
+  visibility: visible;
+}
+
+.inactive_track::before {
+  visibility: hidden;
+}
 
 .hidden {
   visibility:hidden;
@@ -142,7 +136,7 @@ section {
 
 .list-header {
   font-size: 1.7em;
-  color: #ede61e;
+  color: #FBCA07;
 }
 
 
@@ -154,15 +148,15 @@ section {
   border: 3.5px solid black;
   border-radius: 5px;
   flex-flow: row nowrap;
-  justify-content:space-between;
+  justify-content:space-around;
   align-items:center;
   height: auto;
-  min-width: 45vw;
+  width:90%;
   box-shadow: 3px 7px 7px black;
-}
-
-#player > div {
-
+  position: fixed;
+  bottom:2vh;
+  left: 5vw;
+  right: 5vw;
 }
 
 #player span {
@@ -183,7 +177,7 @@ section {
 }
 
 #pButton:hover {
-  background-color: #4200f7;
+  background-color: #849bff;
   transition: all .4s ease;
 }
 
@@ -202,20 +196,30 @@ section {
   background: url('images/icons/pending.png') no-repeat;
 }
 
-
+#timeline_container {
+  text-align:center;
+  flex-grow:2;
+  max-width: 800px;
+  flex-flow: column wrap;
+}
 #timeline {
-  width: 90px;
+  width:90%;
+  padding: 0 3px;
   height: 20px;
-  background: #4200f7;
+  background: #4b4c4f;
+  border: 1px solid white;
   border-radius:15px;
+
+
 }
 
 #playhead {
   height: 18px;
   width: 18px;
-  border-radius:50%;
-  margin-top: 1.5px;
-	background: rgba(0, 255, 196, 0.82);
+  border-radius: 50%;
+  border: 1px solid white;
+  margin-top: 1px;
+	background: white;
 }
 
 /* flexbox rules */
@@ -236,9 +240,11 @@ section {
 }
 
   .track-heading::before {
-    content: ">";
+    content: "\f1d0";
+    font-family: FontAwesome;
     color: #849bff;
     text-shadow: 1px 2px 2px black;
+    margin-right: .5vw;
   }
 
   #pButton, #rButton, #dButton {
@@ -249,20 +255,11 @@ section {
     width: 90vw;
   }
 
-  #player > div {
-    min-width: 250px;
-  }
 
-  #timeline {
-    width: 300px;
-    height: 20px;
-    background: #4200f7;
-    border-radius:15px;
-  }
 
   #playhead {
-    height: 18px;
-    width: 18px;
+    height: 12px;
+    width: 12px;
   }
   #music_tracks {
     align-items:baseline;
